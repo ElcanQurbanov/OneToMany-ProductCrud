@@ -1,0 +1,57 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container my-5">
+    <h1 style="text-align:center">Product delete</h1>
+
+        <div class="form-group">
+            <h4 class="my-3" style="color:blue">Name </h4>
+            <input class="form-control" disabled id="customFile" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+
+        <div class="form-group">
+            <h4 class="my-3" style="color:blue">Description </h4>
+            <input class="form-control" disabled id="customFile" value="@ViewBag.desc" />
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+
+        <div class="form-group">
+            <h4 class="my-3" style="color:blue">Price </h4>
+            <input type="text" disabled class="form-control" id="customFile" asp-for="Price" />
+            <span class="text-danger" asp-validation-for="Price"></span>
+        </div>
+
+        <div class="form-group">
+            <h4 class="my-3" style="color:blue">Count </h4>
+            <input disabled class="form-control" id="customFile" asp-for="Count" />
+            <span class="text-danger" asp-validation-for="Count"></span>
+        </div>
+
+        <div class="form-group">
+            <h4 class="my-3" style="color:blue">Category </h4>
+            <input disabled class="form-control" id="customFile" asp-for="Category.Name" />
+        </div>
+
+        <div class="form-group">
+           @foreach (var item in Model.Images)
+            {
+            <img src="~/img/@item.Image" style="width:150px;height:150px;">
+            }
+        </div>
+
+        <div class="form-group">
+            <h3 class="text-danger">Are you sure to delete product ?</h3>
+        </div>
+
+    <form asp-action="Delete" method="post">
+        <div class="form-group">
+            <div class="buttons my-3">
+                <button type="submit" class="btn btn-primary mr-2">Delete</button>
+                <a class="btn btn-light" asp-action="Index">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>

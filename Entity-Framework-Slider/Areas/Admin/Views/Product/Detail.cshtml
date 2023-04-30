@@ -1,0 +1,43 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container my-5">
+    <h1>Product detail</h1>
+
+    
+
+    <div class="my-3">
+        <h4 class="my-3">Name</h4>
+        <input type="text" class="form-control" id="customFile" asp-for="Name" disabled="disabled" />
+
+        <h4 class="my-3">Description</h4>
+        <input type="text" class="form-control" id="customFile" asp-for="Description" disabled="disabled" value="@ViewBag.desc" />
+
+        <h4 class ="my-3">Price</h4>
+        <input type="text" class="form-control" id="customFile" asp-for="Price" disabled="disabled" />
+
+        <h4 class="my-3">Count</h4>
+        <input type="text" class="form-control" id="customFile" asp-for="Count" disabled="disabled" />
+
+        <h4 class="my-3">Category</h4>
+        <input type="text" class="form-control" id="customFile" asp-for="Category.Name" asp-items="@ViewBag.categories" disabled="disabled" />
+
+        @*@foreach (var item in Model.Images)
+        {
+            <div class="product-content my-3">
+                <img style="width:400px; height:200px;" src="~/img/@item.Image" />
+            </div>
+        }*@
+
+        <a class="btn btn-info mt-3" asp-action="Index">
+            Back
+        </a>
+
+    </div>
+
+   
+</div>
+

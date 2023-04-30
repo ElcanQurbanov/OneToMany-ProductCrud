@@ -1,0 +1,59 @@
+﻿@model ProductUpdateVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container my-5">
+    <h1 style="text-align:center">Product edit</h1>
+    
+    <form class="form-sample" asp-action="Edit" method="post" enctype="multipart/form-data">
+
+        <h4 class="my-3">Name</h4>
+        <input type="text" class="form-control" id="customFile" asp-for="Name" />
+        <span class="text-danger" asp-validation-for="Name"></span>
+
+        <h4 class="my-3">Description</h4>
+        <input type="text" class="form-control" id="customFile" asp-for="Description" value="@ViewBag.desc" />
+        <span class="text-danger" asp-validation-for="Description"></span>
+
+        <h4 class="my-3">Price</h4>
+        <input type="number" step=".01" class="form-control" id="customFile" asp-for="Price"/>
+        <span class="text-danger" asp-validation-for="Price"></span>
+
+        <h4 class="my-3">Count</h4>
+        <input type="text" class="form-control" id="customFile" asp-for="Count"/>
+        <span class="text-danger" asp-validation-for="Count"></span>
+
+        <h4 class="my-3">Category</h4>
+        <select class="form-control" id="custom-file" asp-for="CategoryId" asp-items="@ViewBag.categories"></select>
+        @*<input type="text" class="form-control" id="customFile"  asp-items="@ViewBag.categories"/>*@
+
+        <h4 class="my-3">Image</h4>
+        <input class="form-control" id="customFile" asp-for="Photos" />
+        <span class="text-danger" asp-validation-for="Photos"></span>
+
+        @*  @foreach (var item in Model.Images)
+        {
+        <div class="blog-content my-5">
+        <img style="width:400px; height:200px;" src="~/img/@item.Image" />
+        </div>
+        }*@
+
+        <div class="buttons my-3">
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <a class="btn btn-light" asp-action="Index">Cancel</a>
+        </div>
+
+    </form>
+
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+

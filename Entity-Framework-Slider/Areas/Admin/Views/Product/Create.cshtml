@@ -1,0 +1,61 @@
+﻿@model ProductCreateVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container my-5">
+    <h1 style="text-align:center">Product create</h1>
+
+    <form class="form-sample" asp-action="Create" method="post" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <h4 class="my-3" style="color:blue">Name </h4>
+            <input type="text" placeholder="Name" class="form-control" id="customFile" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+
+        <div class="form-group">
+            <h4 class="my-3" style="color:blue">Description </h4>
+            <textarea class="form-control" id="description-text" asp-for="Description" rows="5"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+
+        <div class="form-group">
+        <h4 class="my-3" style="color:blue">Price </h4>
+        <input type="number" placeholder="Price" step=".01" class="form-control" id="customFile" asp-for="Price" />
+        <span class="text-danger" asp-validation-for="Price"></span></div>
+
+        <div class="form-group">
+            <h4 class="my-3" style="color:blue">Count </h4>
+            <input type="text" placeholder="Count" class="form-control" id="customFile" asp-for="Count" />
+            <span class="text-danger" asp-validation-for="Count"></span>
+        </div>
+
+        <div class="form-group">
+            <h4 class="my-3" style="color:blue">Category </h4>
+            <select class="form-control" id="custom-file" asp-for="CategoryId" asp-items="@ViewBag.categories"></select>
+        </div>
+
+        <div class="form-group">
+            <h4 class="my-3" style="color:blue">Images </h4>
+            <input class="form-control" id="customFile" asp-for="Photos" />
+            <span class="text-danger" asp-validation-for="Photos"></span>
+        </div>
+      
+        <div class="buttons my-3">
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <a class="btn btn-light" asp-action="Index">Cancel</a>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("description-text");
+    </script>
+}
+
